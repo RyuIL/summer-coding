@@ -1,9 +1,6 @@
 import React from 'react';
 import {
     DateInput,
-    TimeInput,
-    DateTimeInput,
-    DatesRangeInput
   } from 'semantic-ui-calendar-react';
 
   class CalendarModal extends React.Component {

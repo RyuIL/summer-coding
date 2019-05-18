@@ -18,7 +18,6 @@ class App extends Component {
     return (
       <Layout>
         <TodoContainer/>
-        {/* {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>} */}
       </Layout>
     );
   }

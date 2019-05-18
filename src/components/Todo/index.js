@@ -1,3 +1,3 @@
-import * as Todos from './Todos';
+import * as Todos from './TodosInput';
 
 export default Todos;
