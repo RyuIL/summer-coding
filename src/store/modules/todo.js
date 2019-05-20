@@ -13,6 +13,7 @@ const TODO_MODAL_ClOSE = 'todo/TODO_MODAL_CLOSE';
 const TODO_EDIT_MODAL_OPEN = "todo/TODO_EDIT_MODAL_OPEN";
 const TODO_EDIT_MODAL_CLOSE = "todo/TODO_EDIT_MODAL_CLOSE";
 const TODO_ORDER_CHANGE = "todo/TODO_ORDER_CHANGE";
+const CHECK_TIME = "todo/CHECK_TIME";
 
 export const changeInput = createAction(CHANGE_INPUT, value => value);
 export const changeContent = createAction(CHANGE_CONTENT, value => value);
@@ -26,6 +27,7 @@ export const todoEditModalOpen = createAction(TODO_EDIT_MODAL_OPEN, id => id);
 export const todoModalClose = createAction(TODO_MODAL_ClOSE);
 export const todoEditModalClose = createAction(TODO_EDIT_MODAL_CLOSE);
 export const todoOrderChange = createAction(TODO_ORDER_CHANGE, value => value);
+export const checkTime = createAction(CHECK_TIME);
 
 let id = 0;
 
@@ -33,6 +35,7 @@ const initialState = Map({
   input: '',
   inputContent : '',
   date : new Date(),
+  now : Date(),
   order : '',
   todoOpen : false,
   modalOpen : false,
@@ -83,5 +86,6 @@ export default handleActions({
                 .set('order', "");
   },
   [CHANGE_DATE] : (state, {payload : date}) => state.set('date', date),
-  [TODO_ORDER_CHANGE] : (state, {payload : value}) => state.set('order', value)
+  [TODO_ORDER_CHANGE] : (state, {payload : value}) => state.set('order', value),
+  [CHECK_TIME] : (state) => state.set('now', new Date())
 }, initialState);

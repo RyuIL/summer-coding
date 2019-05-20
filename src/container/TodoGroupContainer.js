@@ -34,7 +34,13 @@ class TodoGroupContainer extends Component {
         const {TodoActions} = this.props;
         TodoActions.todoEditModalClose(id);
     }
-  
+
+    componentDidMount(){
+      setInterval(()=>{
+        this.props.TodoActions.checkTime();
+      },10000)
+    }
+
   render() {
     const { 
         handleToggle, handleRemove, handleEdit, handleTodoClose, handleTodoOpen,
@@ -62,7 +68,8 @@ export default connect(
   ({ todo}) => ({
     todos: todo.get("todos"),
     editModalOpen : todo.get("editModalOpen"),
-    data : todo.get('data')
+    data : todo.get('data'),
+    now : todo.get('now')
   }),
   dispatch => ({
     TodoActions: bindActionCreators(todoActions, dispatch),

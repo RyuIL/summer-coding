@@ -18,7 +18,6 @@ class TodosContainer extends Component {
     return (
       <Container textAlign='center'>
           <TodoGroupContainer addNotification={addNotification}/>
-          {todos.size ? "":<Header>버튼을 눌러 작업을 추가해 보세요!</Header>}
           <TodoViewerContainer addNotification={addNotification}/>
       </Container>
     );

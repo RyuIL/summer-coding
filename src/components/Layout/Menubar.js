@@ -21,19 +21,19 @@ export default class Menubar extends Component {
 
     return (
       <div>
-        <Sidebar  handleVisible={visible}>
-        <Menu secondary>
+        <Sidebar handleVisible={visible}>
+        <Menu fluid  secondary color='teal'>
           <Container>
           <Menu.Item name='menu' active={activeItem === 'menu'} onClick={this.handleItemClick} />
           <Menu.Menu position='right'>
             <Menu.Item>
               {/* <Input icon='search' placeholder='Search...' /> */}
             </Menu.Item>
-            <Menu.Item
+            {/* <Menu.Item
               name='logout'
               active={activeItem === 'logout'}
               onClick={this.handleItemClick}
-            />
+            /> */}
           </Menu.Menu>
           </Container>
         </Menu>

@@ -22,7 +22,7 @@ class TodosViewer extends React.Component {
         return(   
             
             <Modal dimmer='blurring' open={editModalOpen||modalOpen} 
-            closeIcon onClose={onModalClose} trigger={<Button icon='plus' 
+            closeIcon onClose={onModalClose} trigger={<Button size='huge' color='blue' icon='plus' 
             onClick={onModalOpen} style={{"margin-top" : "1em"}}/>} centered={false}
             >
                 {
