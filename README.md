@@ -1,22 +1,14 @@
-## Dependencies
-    "axios": "^0.18.0",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "immutable": "^4.0.0-rc.12",
-    "json-server": "^0.14.2",
-    "mysql": "^2.16.0",
-    "open-color": "^1.6.3",
-    "react": "^16.8.4",
-    "react-click-outside": "^3.0.1",
-    "react-dom": "^16.8.4",
-    "react-icons": "^3.5.0",
-    "react-immutable-proptypes": "^2.1.0",
-    "react-redux": "^6.0.1",
-    "react-scripts": "2.1.8",
-    "react-textarea-autosize": "^7.1.0",
-    "react-transition-group": "^2.6.0",
-    "redux": "^4.0.1",
-    "redux-actions": "^2.6.5",
-    "redux-pender": "^2.0.12",
-    "sequelize": "^5.2.8",
-    "styled-components": "^4.1.3"
+## 설치
+yarn 설치 ttps://yarnpkg.com/en/docs/install#mac-stable
+
+node 10.15.3
+npm 6.9
+설치 https://nodejs.org/ko/download/
+
+
+## git 클론
+git clone https://github.com/RyuIL/summer-coding
+yarn
+
+## 실행
+yarn start
