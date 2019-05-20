@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dropdown, Input } from 'semantic-ui-react'
+import { Dropdown } from 'semantic-ui-react'
 
 const tagOptions = [
   {
@@ -47,7 +47,7 @@ class PriorityDropdown extends React.Component{
       this.props.onOrderChange(color);
     }
     render(){
-      const {order, onOrderChange} = this.props;
+      const {order} = this.props;
       return(
         <Dropdown
           text={order ? order.text : "우선순위"}
@@ -56,7 +56,7 @@ class PriorityDropdown extends React.Component{
           labeled
           button
           className='icon'
-          style={{'margin-left':'1em'}}
+          style={{'marginLeft':'1em'}}
         >
       <Dropdown.Menu>
           <Dropdown.Menu scrolling>

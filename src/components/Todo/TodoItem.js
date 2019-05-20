@@ -33,7 +33,7 @@ class TodoItem extends React.Component{
     
     render(){
         const {
-            id, checked, text, onToggle, addNotification
+            id, checked, text
         } = this.props;
         const {isOpen} = this.state;
         return(
@@ -56,7 +56,7 @@ class TodoItem extends React.Component{
                 <Label size='medium' as='a' color={text.order ? text.order.label.color : "grey"} ribbon>
                     {(text.date.getMonth()+1)+"."+text.date.getDate()}
                 </Label>
-                <span style={{'font-size': 'large'}}>
+                <span style={{'fontSize': 'large'}}>
                     {text.input}<br/>
                 </span>
                 {text.inputContent}

@@ -16,13 +16,13 @@ class TodosViewer extends React.Component {
 
     render(){
         const {
-            onChange, onChangeContent, todos, modalOpen, onModalOpen, onOrderChange,
+            onChange, onChangeContent, modalOpen, onModalOpen, onOrderChange,
             onModalClose, editModalOpen, onChangeDate, date, input, inputContent, order, 
             } = this.props;
         return(   
             
             <Modal dimmer='blurring' open={editModalOpen||modalOpen} 
-            closeIcon onClose={onModalClose} trigger={<Button icon='plus' 
+            closeIcon onClose={onModalClose} trigger={<Button size='huge' color='blue' icon='plus' 
             onClick={onModalOpen} style={{"margin-top" : "1em"}}/>} centered={false}
             >
                 {

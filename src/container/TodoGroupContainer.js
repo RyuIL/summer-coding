@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as todoActions from "store/modules/todo";
-import * as notificationActions from 'store/modules/notification';
 
 import TodoGroup from 'components/Todo/TodoGroup';
 
@@ -34,13 +33,19 @@ class TodoGroupContainer extends Component {
         const {TodoActions} = this.props;
         TodoActions.todoEditModalClose(id);
     }
-  
+
+    componentDidMount(){
+      setInterval(()=>{
+        this.props.TodoActions.checkTime();
+      },10000)
+    }
+
   render() {
     const { 
         handleToggle, handleRemove, handleEdit, handleTodoClose, handleTodoOpen,
         handleEditOpen, handleEditClose
     } = this;
-    const { todos, addNotification } = this.props;
+    const { todos, addNotification, now } = this.props;
 
     return (
         <TodoGroup  
@@ -53,6 +58,7 @@ class TodoGroupContainer extends Component {
             onEditOpen={handleEditOpen}
             onEditClose={handleEditClose}
             addNotification={addNotification}
+            now = {now}
         />
     );
   }
@@ -62,7 +68,8 @@ export default connect(
   ({ todo}) => ({
     todos: todo.get("todos"),
     editModalOpen : todo.get("editModalOpen"),
-    data : todo.get('data')
+    data : todo.get('data'),
+    now : todo.get('now')
   }),
   dispatch => ({
     TodoActions: bindActionCreators(todoActions, dispatch),

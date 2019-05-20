@@ -35,6 +35,7 @@ export default class SidebarExampleDimmed extends Component {
           </Sidebar.Pusher>
         </Sidebar.Pushable>
       </div>
+      
     )
   }
 }
