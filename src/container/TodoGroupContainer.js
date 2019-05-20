@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as todoActions from "store/modules/todo";
-import * as notificationActions from 'store/modules/notification';
 
 import TodoGroup from 'components/Todo/TodoGroup';
 
@@ -46,7 +45,7 @@ class TodoGroupContainer extends Component {
         handleToggle, handleRemove, handleEdit, handleTodoClose, handleTodoOpen,
         handleEditOpen, handleEditClose
     } = this;
-    const { todos, addNotification } = this.props;
+    const { todos, addNotification, now } = this.props;
 
     return (
         <TodoGroup  
@@ -59,6 +58,7 @@ class TodoGroupContainer extends Component {
             onEditOpen={handleEditOpen}
             onEditClose={handleEditClose}
             addNotification={addNotification}
+            now = {now}
         />
     );
   }

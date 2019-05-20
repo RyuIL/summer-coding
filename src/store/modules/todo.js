@@ -35,7 +35,7 @@ const initialState = Map({
   input: '',
   inputContent : '',
   date : new Date(),
-  now : Date(),
+  now : new Date(),
   order : '',
   todoOpen : false,
   modalOpen : false,

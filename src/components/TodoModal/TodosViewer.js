@@ -16,7 +16,7 @@ class TodosViewer extends React.Component {
 
     render(){
         const {
-            onChange, onChangeContent, todos, modalOpen, onModalOpen, onOrderChange,
+            onChange, onChangeContent, modalOpen, onModalOpen, onOrderChange,
             onModalClose, editModalOpen, onChangeDate, date, input, inputContent, order, 
             } = this.props;
         return(   
