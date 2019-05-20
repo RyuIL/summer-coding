@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon, Button } from "semantic-ui-react";
 
-const AddButton = () => {
+const AddButton = (onOpen) => {
   return (
     <Button icon>
       <Icon name="plus" />

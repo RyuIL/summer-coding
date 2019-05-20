@@ -1,57 +1,53 @@
 import React from 'react'
-import { Header, Button, Popup, Grid, Segment, Modal, Divider} from 'semantic-ui-react';
-import TodosEditViewer from 'components/TodoModal/TodosEditViewer';
+import { Header, Button, Popup, Grid, Segment, Label} from 'semantic-ui-react';
+
 class TodoItem extends React.Component{
     state = {
-        isOpen: false,
-        isEditOpen : false,
-    };  
-
+        isOpen : false
+    }
     handleOpen = () => {
         this.setState({ isOpen: true });
-      }
-    
-    handleEditClose = (dataFromChild) => {
-        this.setState({ isOpen: false });
     }
 
-    handleClose = () =>{
-        this.setState({ isOpen : false});
+    handleClose = () =>{    
+        this.setState({isOpen : false});
     }
 
-    
+    handleEditClose = () => {
+        this.setState({isOpen : false});
+        this.props.onEditOpen();
+    }
     render(){
+        const {
+            id, checked, text, onRemove, onToggle
+        } = this.props;
         const {isOpen} = this.state;
-        const isClose = this.state.isOpen 
-        const {id, checked, text, onRemove, onToggle, onEdit, onChange, onChangeContent} = this.props;
         return(
-            <Popup on='click' open={this.state.isOpen} onOpen={this.handleOpen} onClose={isOpen} flowing position="bottom right"
+            <Popup on='click' onOpen={this.handleOpen} open={isOpen} onClose={this.handleClose} flowing position="bottom right"
                 content = {
                 <Grid centered divided columns={1}>
                     <Grid.Column textAlign='center'>
                     <Button.Group>
                         <Button color='blue' onClick={()=>onToggle(id)}>{checked ? <p>복원</p> : <p>완료</p>}</Button>
                         <Button.Or />
-                        <TodosEditViewer
-                            id={id}
-                            text='수정'
-                            onEdit={onEdit}
-                            inputText={text}
-                            onChange={onChange}
-                            onChangeContent={onChangeContent}
-                            handleClose={(dataFromChild)=> this.handleEditClose(dataFromChild)}
-                        />
+                        <Button color='orange' onClick={this.handleEditClose}>수정</Button>
                         <Button.Or />
                         <Button color='red' onClick={()=>onRemove(id)} >삭제</Button>
                     </Button.Group>   
                     </Grid.Column>
                 </Grid>
                 }
-                trigger={<Segment color='red' textAlign='left' 
+                trigger={<Segment color={text.order ? text.order.label.color : "grey"} textAlign='left' raised
                 style={{ textDecoration: checked ? "line-through" : "none" }}> 
-                <Header>{text.input}</Header>
+                <Label size='medium' as='a' color={text.order ? text.order.label.color : "grey"} ribbon>
+                    {(text.date.getMonth()+1)+"."+text.date.getDate()}
+                </Label>
+                <span style={{'font-size': 'large'}}>
+                    {text.input}<br/>
+                </span>
                 {text.inputContent}
-            </Segment>} />  
+                </Segment>
+            } />  
         )
     }
 }

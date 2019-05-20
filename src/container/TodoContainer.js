@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import Todos from "components/Todo/Todos";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as todoActions from "store/modules/todo";
 
-import TodosViewer from "components/TodoModal/TodosViewer";
-import { Container } from "semantic-ui-react";
+import { Container, Header } from "semantic-ui-react";
+
+import TodoGroupContainer from './TodoGroupContainer';
+import TodoViewerContainer from './TodoViewerContainer';
+
 
 class TodosContainer extends Component {
   handleChange = e => {
@@ -35,36 +37,23 @@ class TodosContainer extends Component {
   };
 
   handleRemove = id => {
-    // 아이템 제거
     const { TodoActions } = this.props;
     TodoActions.remove(id);
   };
 
   handleChangeDate = (id) => {
     const {TodoActions} = this.props;
-    
   }
   
   render() {
-    const { handleChange, handleChangeContent, handleInsert, handleToggle, handleRemove, handleEdit } = this;
+    const {  } = this;
     const { input, inputContent ,todos } = this.props;
 
     return (
       <Container textAlign='center'>
-        <Todos
-          input={input}
-          inputContent={inputContent}
-          todos={todos}
-          onToggle={handleToggle}
-          onRemove={handleRemove}
-
-          onInsert={handleInsert}
-          onEdit={handleEdit}
-
-          onChange={handleChange}
-          onChangeContent={handleChangeContent}
-        />
-        
+          <TodoGroupContainer/>
+          {todos.size ? <TodoViewerContainer/> : <div><Header>작업을 추가 하세요.</Header> <TodoViewerContainer/></div>}
+          
       </Container>
     );
   }
@@ -76,7 +65,8 @@ export default connect(
     inputContent : todo.get('inputContent'),
     date : todo.get('date'),
     order : todo.get('oreder'),
-    todos: todo.get("todos")
+    todos: todo.get("todos"),
+    editModalOpen : todo.get('editModalOpen')
   }),
   dispatch => ({
     TodoActions: bindActionCreators(todoActions, dispatch)

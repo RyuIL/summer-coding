@@ -27,7 +27,7 @@ export default class Menubar extends Component {
           <Menu.Item name='menu' active={activeItem === 'menu'} onClick={this.handleItemClick} />
           <Menu.Menu position='right'>
             <Menu.Item>
-              <Input icon='search' placeholder='Search...' />
+              {/* <Input icon='search' placeholder='Search...' /> */}
             </Menu.Item>
             <Menu.Item
               name='logout'

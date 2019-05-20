@@ -36,29 +36,38 @@ const tagOptions = [
     key: '0',
     text: '기본',
     value: '0',
-    label: { empty: true, circular: true },
+    label: { color : 'grey', empty: true, circular: true },
   }
   
 ]
 
-const PriorityDropdown = () => (
-  <Dropdown
-    text='우선순위'
-    icon='filter'
-    floating
-    labeled
-    button
-    className='icon'
-  >
-    <Dropdown.Menu>
-      <Dropdown.Header icon='tags' content='Tag Label' />
-      <Dropdown.Menu scrolling>
-        {tagOptions.map(option => (
-          <Dropdown.Item key={option.value} {...option} />
-        ))}
-      </Dropdown.Menu>
-    </Dropdown.Menu>
-  </Dropdown>
-)
+class PriorityDropdown extends React.Component{
+
+    handleClick = (color) =>{
+      this.props.onOrderChange(color);
+    }
+    render(){
+      const {order, onOrderChange} = this.props;
+      return(
+        <Dropdown
+          text={order ? order.text : "우선순위"}
+          icon='filter'
+          floating
+          labeled
+          button
+          className='icon'
+          style={{'margin-left':'1em'}}
+        >
+      <Dropdown.Menu>
+          <Dropdown.Menu scrolling>
+            {tagOptions.map(option => (
+              <Dropdown.Item key={option.value} id={option.value} {...option} onClick={() => this.handleClick(option)} />
+            ))}
+          </Dropdown.Menu>
+        </Dropdown.Menu>
+      </Dropdown>
+      )
+    }
+}
 
 export default PriorityDropdown;

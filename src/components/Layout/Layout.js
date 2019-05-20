@@ -1,14 +1,13 @@
 import React from "react";
 import Menubar from "./Menubar";
 import Footer from './Footer';
-import { Container, Divider } from 'semantic-ui-react'
+import { Container, Divider, Header } from 'semantic-ui-react'
 
 const Layout = ({ children, todolist }) => (
   <Menubar>
     <Container>
-    
-    <Container textAlign='center'><b>ProjectName</b></Container>
-    <Container textAlign='right'>Right Aligned</Container>
+    <Container textAlign='center'><Header>TODOLIST</Header></Container>
+    <Container textAlign='center'>{new Date().getMonth()+1+"월"+new Date().getDate()+"일"}</Container>
     <Container textAlign='justified'>
       <Divider />
       {children}

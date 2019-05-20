@@ -5,35 +5,46 @@ import CalendarModal2 from './CalendarModal2';
 import PriorityDropdown from 'components/PriorityDropdown/PriorityDropdown';
 import TodosInput from 'components/Todo/TodosInput';
 class TodosViewer extends React.Component {
-    state = {...this.state, open : false};
-
-    show = () => this.setState({ open: true })
-    close = () => this.setState({ open: false })
     handleSubmit = () => {
-        this.props.onInsert();
-        this.close();
+        this.props.modalOpen ? this.props.onInsert() : this.props.onEdit();
+        this.props.onModalClose();        
     }
+
     render(){
-        const {open} = this.state;
-        const {onChange, onChangeContent, todos} = this.props;
+        const {
+            onChange, onChangeContent, todos, modalOpen, onModalOpen, onOrderChange,
+            onModalClose, editModalOpen, onChangeDate, date, input, inputContent, order, 
+            } = this.props;
         return(   
-            <Modal dimmer='blurring' open={open} trigger={<Button icon='plus' onClick={this.show} style={{"margin-top" : "1em"}}/>} centered={false}
+            
+            <Modal dimmer='blurring' open={editModalOpen||modalOpen} 
+            closeIcon onClose={onModalClose} trigger={<Button icon='plus' 
+            onClick={onModalOpen} style={{"margin-top" : "1em"}}/>} centered={false}
             >
-                <Modal.Header>작업 추가 하기</Modal.Header>
+                {
+                    modalOpen ? <Modal.Header>작업 등록</Modal.Header>
+                     : <Modal.Header>작업 수정</Modal.Header>
+                }
                 <Modal.Content image>            
                     <Modal.Description>
                         <TodosInput
                             onChange={onChange}
                             onChangeContent={onChangeContent}
+                            editModalOpen={editModalOpen}
+                            input={input}
+                            inputContent={inputContent}
                         />
                         <Divider/>
-                        <CalendarModal2/>
-                        <PriorityDropdown/>
+                        <CalendarModal2 onChangeDate={onChangeDate} date={date}/>
+                        <PriorityDropdown
+                            order={order}
+                            onOrderChange={onOrderChange}
+                        />
                     </Modal.Description>
                 </Modal.Content>
                 
                 <Modal.Actions>
-                    <Button color='black' onClick={this.close}>  
+                    <Button color='black' onClick={onModalClose}>  
                     취소
                     </Button>
                     <Button
@@ -44,8 +55,7 @@ class TodosViewer extends React.Component {
                     onClick={this.handleSubmit}
                     />
                 </Modal.Actions>
-            </Modal>
-            
+            </Modal>    
         )
     }
 }

@@ -6,14 +6,17 @@ class CalendarModal2 extends Component {
     date: new Date(),
   }
  
-  onChange = date => this.setState({ date })
+  onChange = date => {
+    date ? this.props.onChangeDate(date) : this.props.onChangeDate(new Date());
+  }
  
   render() {
+    const {date} = this.props;
     return (
         <DatePicker
           minDate = {new Date()}
           onChange={this.onChange}
-          value={this.state.date}
+          value={date ? date : new Date()}
         />
     );
   }
