@@ -1,9 +1,10 @@
 ## 설치
-yarn 설치 ttps://yarnpkg.com/en/docs/install#mac-stable
+yarn 설치 1.15.2
+https://yarnpkg.com/en/docs/install#mac-stable
 
 node 10.15.3
 npm 6.9
-설치 https://nodejs.org/ko/download/
+https://nodejs.org/ko/download/
 
 
 ## git 클론
@@ -12,3 +13,7 @@ yarn
 
 ## 실행
 yarn start
+
+
+## DEMO
+https://master.d1fm38j6nh2qpt.amplifyapp.com/
