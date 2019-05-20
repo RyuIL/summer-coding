@@ -7,7 +7,7 @@ const TodosGroup = ({
 }) => {
 
   const todoItems = todos.map(todo => {
-    const {id, checked, text } = todo.toJS();
+    const {id, checked, text} = todo.toJS();
     return(
     <TodoItem
       id={id} 

@@ -84,5 +84,4 @@ export default handleActions({
   },
   [CHANGE_DATE] : (state, {payload : date}) => state.set('date', date),
   [TODO_ORDER_CHANGE] : (state, {payload : value}) => state.set('order', value)
-  
 }, initialState);

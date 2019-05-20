@@ -3,10 +3,10 @@ const should = require('should');
 const app = require('../../app');
 const request = require('supertest');
 
-describe('GET /users', ()=> {
+describe('GET /todos', ()=> {
     it('should return 200 status code', (done) => {
         request(app)
-            .get('/users')
+            .get('/todos')
             .export(200)
             .end((err, res) => {
                 if(err) {console.log(err)};
