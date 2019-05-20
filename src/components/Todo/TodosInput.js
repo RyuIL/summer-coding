@@ -1,6 +1,6 @@
 import React from 'react';
-import { List, Map } from 'immutable';
-import { Container, Form } from 'semantic-ui-react'
+import { } from 'immutable';
+import {Form } from 'semantic-ui-react'
 const TodosInput = ({onChange, onChangeContent, input, inputContent, editModalOpen }) => {
   
   return (

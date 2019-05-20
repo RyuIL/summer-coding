@@ -13,6 +13,7 @@
     "mysql": "^2.16.0",
     "open-color": "^1.6.3",
     "react": "^16.8.4",
+    "react-animated-css": "^1.2.1",
     "react-click-outside": "^3.0.1",
     "react-dom": "^16.8.4",
     "react-icons": "^3.5.0",

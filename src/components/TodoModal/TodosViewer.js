@@ -1,13 +1,17 @@
 import React from 'react'
-import { Button, Header, Modal, Icon, Input, Form, TextArea, Divider } from 'semantic-ui-react'
+import { Button, Modal, Divider } from 'semantic-ui-react'
 
 import CalendarModal2 from './CalendarModal2';
 import PriorityDropdown from 'components/PriorityDropdown/PriorityDropdown';
 import TodosInput from 'components/Todo/TodosInput';
 class TodosViewer extends React.Component {
     handleSubmit = () => {
+        let value;
         this.props.modalOpen ? this.props.onInsert() : this.props.onEdit();
-        this.props.onModalClose();        
+        this.props.modalOpen ? value = {type : "success", message : "작업 등록 완료", title : "등록"} 
+        : value = {type : "info", message : "작업 수정 완료", title : "수정"}
+        this.props.onModalClose();
+        this.props.addNotification(value);
     }
 
     render(){

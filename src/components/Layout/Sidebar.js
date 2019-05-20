@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Header, Icon, Image, Menu, Segment, Sidebar, Dropdown, Container } from 'semantic-ui-react'
+import { Menu, Segment, Sidebar } from 'semantic-ui-react'
 
 export default class SidebarExampleDimmed extends Component {
   state = { visible: false }
@@ -9,7 +9,7 @@ export default class SidebarExampleDimmed extends Component {
   handleSidebarHide = () => this.setState({ visible: false })
 
   render() {
-    const { handleVisible, children} = this.props;
+    const { children} = this.props;
     const {visible} = this.state;
 
     return (

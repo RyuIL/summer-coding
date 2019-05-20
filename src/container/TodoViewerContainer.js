@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as todoActions from "store/modules/todo";
 
-import { Container, Modal, Button, Divider } from "semantic-ui-react";
-
 import TodosViewer from 'components/TodoModal/TodosViewer';
 
 class TodoViewerContainer extends Component {
@@ -56,7 +54,7 @@ class TodoViewerContainer extends Component {
       handleChange, handleChangeContent, handleInsert,  handleEdit,
       handleModalClose, handleModalOpen, handleChangeDate, handleOrderChange
      } = this;
-    const {todos, modalOpen, editModalOpen, date, input, inputContent, order } = this.props;
+    const {modalOpen, editModalOpen, date, input, inputContent, order, addNotification } = this.props;
 
     return (
         <TodosViewer
@@ -74,6 +72,7 @@ class TodoViewerContainer extends Component {
             inputContent = {inputContent}
             onOrderChange = {handleOrderChange}
             order={order}
+            addNotification={addNotification}
         />
     );
   }

@@ -9,6 +9,8 @@ import store from './store/store';
 //semantic-ui-react
 import 'semantic-ui-css/semantic.min.css'
 
+import "../node_modules/react-notifications-component/dist/theme.css"
+import 'lib/animate.css';
 //router
 // import { BrowserRouter } from 'react-router-dom';
 

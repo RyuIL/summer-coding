@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Menu, Container } from 'semantic-ui-react'
+import {Menu, Container } from 'semantic-ui-react'
 import Sidebar from './Sidebar';
 export default class Menubar extends Component {
   state = {

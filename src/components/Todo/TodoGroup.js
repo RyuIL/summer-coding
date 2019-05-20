@@ -3,7 +3,7 @@ import TodoItem from './TodoItem';
 
 const TodosGroup = ({ 
     todos, onToggle, onRemove, onEdit, onEditOpen,
-    onEditClose
+    onEditClose, addNotification
 }) => {
 
   const todoItems = todos.map(todo => {
@@ -18,6 +18,7 @@ const TodosGroup = ({
       onEdit= {onEdit}
       onEditOpen = {onEditOpen}
       onEditClose = {onEditClose}
+      addNotification = {addNotification}
     />
     )    
   })
