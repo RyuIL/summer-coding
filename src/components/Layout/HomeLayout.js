@@ -206,12 +206,13 @@ ResponsiveContainer.propTypes = {
 
 class HomepageLayout extends React.Component{
     constructor(props) {
-        super(props);
-        this.addNotification = this.addNotification.bind(this);
+        super(props);  
         this.notificationDOMRef = React.createRef();
-      }
+        this.addNotification = this.addNotification.bind(this);
+    }
+
     addNotification(value) {
-        this.notificationDOMRef.current.addNotification({
+          this.notificationDOMRef.current.addNotification({
           title: value.title,
           message: value.message,
           type: value.type,
